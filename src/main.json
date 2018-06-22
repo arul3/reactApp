@@ -1,0 +1,53 @@
+{
+	"status" : "started",
+
+	"leftPanel" :{
+
+					"user" : {
+								"name" : "ARULKUMAR",
+								"avatar": "./img/default.png"
+					},
+
+					"chatList" : [
+									{
+										"name":"Sukumar S",
+										"id"  : 2,
+										"avatar" : "./img/default.png",
+										"lastMessage"  : "hey. where are you?",
+										"lastTime"		: "3:40 pm"
+									},
+									{
+										"name":"Sakthikanth J",
+										"id"  : 3,
+										"avatar" : "./img/default.png",
+										"lastMessage"  : "Account NO annuppu..",
+										"lastTime"		: "4:50 pm"
+									}
+
+
+								]
+
+				},
+
+	"chatApp" : {
+
+					"receiverId" : 0,
+					"name"		: "",
+					"moblieNo"  : "",
+					"avatar"    :"./img/default.png",
+
+					"data" :   [ { "message" : "hi......  how are you",
+
+        							"date" : "april 20",
+
+        							"time" : "8:20 pm ",
+
+        							"type" : "send",
+
+        							"status" : 1
+      								}
+      							]
+
+				}
+
+}
