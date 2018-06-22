@@ -31,8 +31,9 @@ class App extends Component {
 
     let messages ;
 
-      fetch("http://localhost/chat-app/messages.php",{ method : 'POST',body: JSON.stringify(user) , mode : 'cors', cache: 'no-cache',headers: { 'Accept': 'application/json','Content-Type': 'application/json' }})
+     // fetch("http://localhost/chat-app/messages.php",{ method : 'POST',body: JSON.stringify(user) , mode : 'cors', cache: 'no-cache',headers: { 'Accept': 'application/json','Content-Type': 'application/json' }})
 
+          fetch("./data/message.json")
           .then(response => response.json())
           .then((result) => { this.setState((prevState)=> ({ status  : prevState.status, leftPanel : prevState.leftPanel,chatApp: { name : user.name, receiverId:user.id ,sse : true, data: result}}))
         })
@@ -69,7 +70,7 @@ class App extends Component {
                               cache : 'no-cache'
                }             
 
-            fetch("http://localhost/chat-app/main.php",MyInit)
+            fetch("./data/main.json",MyInit)
             .then(response => response.json())
             .then((result)  =>{ this.setState(result) })
             .catch(error => console.log(error));
