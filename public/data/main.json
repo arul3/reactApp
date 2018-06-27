@@ -1,6 +1,10 @@
 {
 	"status" : "started",
 
+	"loggedIn": true,
+
+	"dataLoaded": true,
+
 	"leftPanel" :{
 
 					"user" : {
@@ -22,7 +26,15 @@
 										"avatar" : "./img/default.png",
 										"lastMessage"  : "Account NO annuppu..",
 										"lastTime"		: "4:50 pm"
+									},
+									{
+										"name":"Kirubakaran S",
+										"id"  : 5,
+										"avatar" : "./img/default.png",
+										"lastMessage"  : "Account NO annuppu..",
+										"lastTime"		: "4:50 pm"
 									}
+
 
 
 								]

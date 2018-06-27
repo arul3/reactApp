@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import './LeftPanel.css';
-
+import './login.css';
 
 import LeftPanel from './components/LeftPanel';
 
+
+global.f ;
 
 class App extends Component {
 
@@ -14,6 +16,10 @@ class App extends Component {
     this.state={
 
         status : "starting",
+        loggedIn: false,
+        dataLoaded: false,
+        username : "",
+        password : ""
 
        
     }
@@ -21,8 +27,46 @@ class App extends Component {
 
     this.updateChatApp = this.updateChatApp.bind(this);
     this.cancelDynamic = this.cancelDynamic.bind(this);
+    this.userLogIn = this.userLogIn.bind(this);
+
+    this.setUserName = this.setUserName.bind(this);
+    this.setPassWord = this.setPassWord.bind(this); 
+
+    this.logout = this.logout.bind(this);
   }
 
+ setUserName(e)
+ {
+  let userName = e.target.value;
+
+          this.setState({ username : userName});
+          console.log(this.state);
+          
+ }
+
+ setPassWord(e){
+  let password = e.target.value;
+
+  this.setState({password : password });
+
+  console.log(this.state.password);
+ }
+
+  userLogIn(e)
+  {
+    alert("userLogIn");
+
+    e.preventDefault();
+
+         fetch("http://localhost/chat-app/login.php",{ method : 'POST',body: JSON.stringify(this.state) , mode : 'cors', cache: 'no-cache',credentials:'include',headers: { 'Accept': 'application/json','Content-Type': 'application/json' }})
+
+         // fetch("./data/message.json")
+          .then(response => response.json())
+          .then((result) => { this.setState(result); alert(result); })
+
+          .catch(error => console.log(error));
+
+  }
 
   updateChatApp(user)
   {
@@ -52,6 +96,27 @@ class App extends Component {
         
   }
 
+  logout()
+  {
+    let MyInit = {
+
+                                            method: 'GET',
+                                            mode : 'cors',
+                                            cache : 'no-cache',
+                                            credentials: 'include'
+                                            } 
+
+
+          fetch("http://localhost:80/chat-app/logout.php",MyInit)
+          .then(response => response.json())
+          .then((result) => { if(result.logout == true)
+                                alert("loggedOUt");
+
+          })
+
+          .catch(error => console.log(error))
+  }
+
 
 
    componentWillMount() {
@@ -61,21 +126,42 @@ class App extends Component {
    }
    componentDidMount() {
                             console.log('DID MOUNT!- application')
+                           let MyInit = {
+
+                                            method: 'GET',
+                                            mode : 'cors',
+                                            cache : 'no-cache',
+                                            credentials: 'include'
+                                            }    
 
 
-               let MyInit = {
+                            if(this.state.loggedIn == false && this.state.dataLoaded == false)
+                            {
 
-                              method: 'GET',
-                              mode : 'cors',
-                              cache : 'no-cache'
-               }             
+          fetch("http://localhost:80/chat-app/alreadyLoggedIn.php",MyInit)
+          .then(response => response.json())
+          .then((result) => { if(result.loggedIn == true) 
+                                this.setState({loggedIn : true});
+                                
+
+          })
+
+          .catch(error => console.log(error));
+
+                            }                
+                      if(this.state.loggedIn && this.state.dataLoaded == false)
+                     {
+
+                                      
 
             fetch("./data/main.json",MyInit)
             .then(response => response.json())
-            .then((result)  =>{ this.setState(result) })
+            .then((result)  =>{ this.setState(result); console.log(result); })
             .catch(error => console.log(error));
 
-
+               }
+              
+               
 
    }
 
@@ -83,18 +169,40 @@ class App extends Component {
       console.log('  WILL UPDATE - Application');
    }
    componentDidUpdate(prevProps, prevState) {
+    
+                  if(this.state.loggedIn && this.state.dataLoaded == false)
+                     {
+
+                              let MyInit = {
+
+                                            method: 'GET',
+                                            mode : 'cors',
+                                            cache : 'no-cache',
+                                            credentials: 'include'
+                                            }             
+            fetch("http://localhost/chat-app/main.php",MyInit)
+            //fetch("./data/main.json",MyInit)
+            .then(response => response.json())
+            .then((result)  =>{ this.setState(result); console.log("main state"+result); })
+            .catch(error => console.log(error));
+
+               }
+                            
       console.log(' DID UPDATE!- Application')
    }
                         
 
 
   render() {
-            if(this.state.status != "starting")
+
+
+
+            if(this.state.loggedIn && this.state.dataLoaded)
             {
               return(
           <div className="MainAppBox">
           <div className="LeftPanelContainer"  >
-          <LeftPanel  data= {this.state.leftPanel } event={ this.updateChatApp  } />
+          <LeftPanel  data= {this.state.leftPanel } event={ this.updateChatApp  } logout = {this.logout} />
 
           </div>
 
@@ -113,8 +221,32 @@ class App extends Component {
 
 
             }
-            else{
-              return(<h3> App is Starting ......</h3>);
+            if( this.state.dataLoaded == false && this.state.loggedIn == true){  return (<h3>dfsdfld </h3> );  }
+            
+
+            if(this.state.loggedIn == false ) {
+              return(<div className="login-page">
+  <div className="form">
+    <form className="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password" />
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p className="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+    <form className="login-form">
+      <input type="text" placeholder="username"   value ={this.state.username} onChange = { this.setUserName }/>
+      <input type="password" placeholder="password" value = { this.state.password }  onChange={ this.setPassWord } />
+      <button onClick = { this.userLogIn }>login</button>
+
+      <button>Guest Login</button>
+      <p className="message">Not registered? <a href="#">Create an account</a></p>
+    </form>
+  </div>
+</div>
+
+
+                );
             }
     
 
@@ -193,11 +325,13 @@ class AppBody extends Component{
 
  
 
-      this.state.evtSource = new EventSource("http://localhost/chat-app/ssedemo.php");
+     this.state.previousUserId = 0;
 
-
+     this.state.evtSource =null;
 
     }
+
+   
 
     
 
@@ -217,8 +351,14 @@ class AppBody extends Component{
 
 
 
-   componentWillReceiveProps(newProps) {    
+   componentWillReceiveProps(newProps) {  
 
+   
+      global.f =true;
+      
+  if(this.state.evtSource != null )
+   this.state.evtSource.close();
+ 
 
    }
    shouldComponentUpdate(newProps, newState) {
@@ -227,39 +367,91 @@ class AppBody extends Component{
    componentWillUpdate(nextProps) {
      
 
+    console.log(" prev userid "+this.state.previousUserId +" props id "+nextProps.data.receiverId);
 
+    if(this.state.evtSource != null )
+   this.state.evtSource.close();
+   
+
+   }
+   componentDidUpdate(prevProps, prevState) {
+
+   
+      let data1;
+
+      let flag = 1;
+
+     //alert(prevProps.receiverId);
+
+      let receiverId = this.props.data.receiverId;
+
+      if (global.f == true) {
+
+        global.f = false;
+
+         this.setState({ messages : [ { date : "Today", messages : [] }]});
+
+      } else {
+
+         let url ="http://localhost/chat-app/ssedemo.php?id="+receiverId; 
+      console.log("url is "+url);
+
+     this.state.evtSource = new EventSource(url);
 
       this.state.evtSource.onopen = function() {
-    console.log("Connection to server opened.");
-  };
+                console.log("Connection to server opened.");
+     };
 
 
-  this.state.evtSource.addEventListener("ping", function(e) {
+    this.state.evtSource.addEventListener("ping", function(e) {
  
   let obj = JSON.parse(e.data);
   
   console.log("chekingsf.."+e.data);
 
-if(obj.length > 0)
-  this.setState({ messages : [ { date : "Today", messages : obj }]});
-
+ data1 = this.state.messages[0].messages;
   
+ if(global.f == true )
+  {
+     // this.setState({ messages : [ { date : "28 March", messages : [] }] , previousUserId : this.props.receiverId });
 
+     data1 =[];
+    
+     global.f = false;
+
+  } 
+
+      
+
+
+           
+
+
+if(obj.length > 0)
+{
+      let data = data1.concat(obj);
+
+  this.setState({ messages : [ { date : "Today", messages : data }]});
+
+;
+}
+  
 }.bind(this), false);
 
-  this.state.evtSource.onerror = function() {
+   this.state.evtSource.onerror = function() {
     console.log("EventSource failed.");
   };
-
-   }
-   componentDidUpdate(prevProps, prevState) {
-
-      let dataNeed;
-
   
 
+      }
 
-     // setInterval(this.setinter,3000)
+       
+     // alert(receiverId);
+
+     
+
+
+  
       console.log('DID UPDATE - App-Body ')
    }
    componentWillUnmount() {

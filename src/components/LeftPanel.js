@@ -15,7 +15,7 @@ class LeftPanel extends Component{
 
 		<div className="left_panel">
            
-			<LeftPanelHeader />
+			<LeftPanelHeader  logout = {this.props.logout}/>
             
            
             <Search />
@@ -44,7 +44,7 @@ render(){
                 <img src="./img/default.png" className="avatar" />
                 
                 <i className="material-icons chat_icon" >chat</i>
-                <i className="material-icons menu">more_vert</i>
+                <i className="material-icons menu" onClick= {this.props.logout }>more_vert</i>
             </div>
 
 		);
