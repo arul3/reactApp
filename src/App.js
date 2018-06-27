@@ -58,7 +58,7 @@ class App extends Component {
 
     e.preventDefault();
 
-         fetch("http://localhost/chat-app/login.php",{ method : 'POST',body: JSON.stringify(this.state) , mode : 'cors', cache: 'no-cache',credentials:'include',headers: { 'Accept': 'application/json','Content-Type': 'application/json' }})
+         fetch("http://www.hoolipip.com/chat-app/login.php",{ method : 'POST',body: JSON.stringify(this.state) , mode : 'cors', cache: 'no-cache',credentials:'include',headers: { 'Accept': 'application/json','Content-Type': 'application/json' }})
 
          // fetch("./data/message.json")
           .then(response => response.json())
@@ -75,9 +75,9 @@ class App extends Component {
 
     let messages ;
 
-     // fetch("http://localhost/chat-app/messages.php",{ method : 'POST',body: JSON.stringify(user) , mode : 'cors', cache: 'no-cache',headers: { 'Accept': 'application/json','Content-Type': 'application/json' }})
+     fetch("http://www.hoolipip.com/chat-app/messages.php",{ method : 'POST',body: JSON.stringify(user) , mode : 'cors', cache: 'no-cache',headers: { 'Accept': 'application/json','Content-Type': 'application/json' }})
 
-          fetch("./data/message.json")
+      //    fetch("./data/message.json")
           .then(response => response.json())
           .then((result) => { this.setState((prevState)=> ({ status  : prevState.status, leftPanel : prevState.leftPanel,chatApp: { name : user.name, receiverId:user.id ,sse : true, data: result}}))
         })
@@ -107,7 +107,7 @@ class App extends Component {
                                             } 
 
 
-          fetch("http://localhost:80/chat-app/logout.php",MyInit)
+          fetch("http://www.hoolipip.com/chat-app/logout.php",MyInit)
           .then(response => response.json())
           .then((result) => { if(result.logout == true)
                                 alert("loggedOUt");
@@ -138,7 +138,7 @@ class App extends Component {
                             if(this.state.loggedIn == false && this.state.dataLoaded == false)
                             {
 
-          fetch("http://localhost:80/chat-app/alreadyLoggedIn.php",MyInit)
+          fetch("http://www.hoolipip.com/chat-app/alreadyLoggedIn.php",MyInit)
           .then(response => response.json())
           .then((result) => { if(result.loggedIn == true) 
                                 this.setState({loggedIn : true});
@@ -180,7 +180,7 @@ class App extends Component {
                                             cache : 'no-cache',
                                             credentials: 'include'
                                             }             
-            fetch("http://localhost/chat-app/main.php",MyInit)
+            fetch("http://www.hoolipip.com/chat-app/main.php",MyInit)
             //fetch("./data/main.json",MyInit)
             .then(response => response.json())
             .then((result)  =>{ this.setState(result); console.log("main state"+result); })
@@ -393,7 +393,7 @@ class AppBody extends Component{
 
       } else {
 
-         let url ="http://localhost/chat-app/ssedemo.php?id="+receiverId; 
+         let url ="http://www.hoolipip.com/chat-app/ssedemo.php?id="+receiverId; 
       console.log("url is "+url);
 
      this.state.evtSource = new EventSource(url);
@@ -620,7 +620,7 @@ class AppSender extends Component{
 
         let Init = { method: 'POST', body : JSON.stringify(this.state), mode: 'cors',cache : 'no-cache', headers: { 'Content-Type': 'application/json'} };
 
-        fetch("http://localhost/chat-app/sendMessage.php",Init)
+        fetch("http://www.hoolipip.com/chat-app/sendMessage.php",Init)
         .then(response => response.text())
         .then( result => {  if(result == "success") {  this.setState({ message : "" }); }   } )
         .catch(error => console.log(error));
