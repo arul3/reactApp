@@ -1,0 +1,153 @@
+{
+	"status" : "started",
+
+	"loggedIn": true,
+
+	"dataLoaded": true,
+
+	"leftPanel" :{
+
+					"user" : {
+								"name" : "ARULKUMAR",
+								"avatar": "./img/default.png"
+					},
+
+					"chatList" : [
+									{
+										"name":"Sukumar S",
+										"id"  : 2,
+										"avatar" : "./img/default.png",
+										"lastMessage"  : "hey. where are you?",
+										"lastTime"		: "3:40 pm"
+									},
+									{
+										"name":"Sakthikanth J",
+										"id"  : 3,
+										"avatar" : "./img/default.png",
+										"lastMessage"  : "Account NO annuppu..",
+										"lastTime"		: "4:50 pm"
+									},
+									{
+										"name":"Kirubakaran S",
+										"id"  : 5,
+										"avatar" : "./img/default.png",
+										"lastMessage"  : "Account NO annuppu..",
+										"lastTime"		: "4:50 pm"
+									}
+
+
+
+								]
+
+				},
+
+	"chatApp" : {
+
+					"receiverId" : 0,
+					"name"		: "",
+					"moblieNo"  : "",
+					"avatar"    :"./img/default.png",
+
+					"data" :   [{
+		"date" : "20 jan",
+
+		"messages":
+					 [ { 
+
+ 				"message" : "hi... how are you",
+
+				"date" : "april 20",
+
+				"time" : "8:20 pm ",
+
+				"type" : "send",
+
+				"status" : 1
+			} , 
+
+			{ 
+
+ 				"message" : "tommorrow we all go in .... outing ....",
+
+				"date" : "april 20",
+
+				"time" : "8:22 pm ",
+
+				"type" : "send",
+
+				"status" : 1
+			},
+
+			{ 
+
+ 				"message" : "I am fine .... ",
+
+				"date" : "april 20",
+
+				"time" : "8:28 pm ",
+
+				"type" : "receive",
+
+				"status" : 1
+			} 
+]
+ 
+
+},
+{
+		"date" : "21 jan",
+
+		"messages":
+					 [ { 
+
+ 				"message" : "I need to go to the beach",
+
+				"date" : "april 20",
+
+				"time" : "8:20 pm ",
+
+				"type" : "send",
+
+				"status" : 1
+			} , 
+
+			{ 
+
+ 				"message" : "do you want to hop in ?",
+
+				"date" : "april 20",
+
+				"time" : "8:22 pm ",
+
+				"type" : "send",
+
+				"status" : 1
+			},
+
+			{ 
+
+ 				"message" : "I am fine .... Thank you..Bro",
+
+				"date" : "april 20",
+
+				"time" : "8:28 pm ",
+
+				"type" : "receive",
+
+				"status" : 1
+			} 
+]
+ 
+
+}
+
+]
+
+
+
+
+
+
+				}
+
+}

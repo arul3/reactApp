@@ -1,0 +1,356 @@
+.LeftPanelContainer{
+    
+     width: 450px;
+    height: 600px;
+
+    display: inline-block;
+}
+
+.MainAppBox{
+  display: inline-flex;
+}
+
+
+.App {
+  
+  width:  800px;
+  height: 720px;
+
+  background-color: #B8E8FF;
+
+  display: inline-block;
+  }
+
+
+
+
+
+
+  .App-header{
+    width: 800px;
+    height: 68px;
+
+    background-color: #25D366;
+  }
+
+  .App-headerAvatarDiv{
+
+    width: 68px;
+    height: 68px;
+    display: inline-block;
+   
+
+    float: left;
+  }
+  .App-headerAvatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 8px;
+    margin-top: 8px;
+
+  }
+
+  .App-headerNameDiv{
+
+    width: 532px;
+    height: 68px;
+    display: inline-block;
+    float: left;
+  }
+
+.NameDiv{
+
+
+     width: 532px;
+    height: 34px;
+    
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.NameDivTextContainer{
+    margin-left: 13px;
+    padding-top: 9px;
+    font-family: 'Roboto';
+}
+
+.LastSeenDiv{
+    width: 534px;
+    height: 34px;
+
+    
+
+}
+.LastSeenTextContainer{
+      display: inline;
+    position: relative;
+    left: 12px;
+    top: 7px;
+    color: white;
+    font-size: 15px;
+}
+.App-headerOptionDiv{
+
+  width: 200px;
+
+  height: 68px;
+  display: inline-block;
+ 
+}
+
+.optionBox1{
+      width: 60px;
+    height: 68px;
+    
+    display: inline-block
+
+}
+
+.searchBox{
+      font-size: 39px;
+    display: inline;
+    float: left;
+    position: relative;
+    top: 17px;
+    left: 8px;
+    color: white;
+}
+
+.attachFile{
+     font-size: 35px;
+    display: inline;
+    float: left;
+    position: relative;
+    top: 17px;
+    left: 8px;
+    color: white;
+}
+.optionBox2{
+      width: 60px;
+    height: 68px;
+   
+    display: inline-block
+
+}
+.optionBox3{
+
+
+}
+  .App-Body{
+
+    width: 820px;
+    height: 560px;
+
+    background-color: lavenderblush;
+     overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: scroll
+    
+  }
+
+    .App-BodyInside{
+
+    width: 800px;
+    height: 560px;
+
+    background-color: lavenderblush;
+    overflow: overflow-y;
+  }
+
+
+.receive{
+  padding-top: 5px;
+}
+
+.receiveBox{
+
+
+  width: 600px;
+  background-color:  white;
+
+
+}
+
+.receiveDetail{
+
+  width: 600px;
+
+  text-align: right;
+  background-color: white;
+}
+
+.send{
+  padding-top: 5px;
+  padding-left: 200px;
+
+}
+
+.sendBox{
+
+
+  width: 600px;
+  background-color:  white;
+
+
+}
+
+.sendDetail{
+
+  width: 600px;
+
+  text-align: right;
+  background-color: white;
+}
+
+.AppSender{
+
+  width: 800px;
+
+  height: 80px;
+
+  background-color: white;
+}
+
+.senderBox{
+
+  width: 800px;
+  height:  80px;
+
+  display: inline;
+}
+
+.senderBoxInput{
+
+  width: 599px;
+  height: 80px;
+
+  display: inline-block;
+
+  background-color: #2DFF7B;
+
+  float: left;  
+
+}
+.senderBoxButton{
+  width: 200px;
+  height:  80px;
+
+display: inline-block;
+  background-color: #4286f4;
+}
+
+.senderButton{
+
+
+    width: 90px;
+    height: 40px;
+    border: 2px solid #4286fa;
+    background-color: white;
+    border-radius: 9%;
+    margin-top: 20px;
+    margin-left: 48px;
+   }
+
+
+
+.sendingMessage{
+
+ 
+     width: 450px;
+    height: 50px;
+    margin-top: 15px;
+    margin-left: 75px;
+
+    font-size: 20px;
+
+    border-radius: 8px;
+
+    border: 1px solid #4286f4;
+    padding-left: 10px;
+
+}
+
+
+.textContainer{
+
+
+    width: 90px;
+    height: 30px;
+
+    margin-top: 10px;
+    text-align: center;
+
+    color: #4286fa;
+}
+
+.DateBox{
+
+  width: 800px;
+
+  height: 40px;
+
+  padding-top: 5px;
+
+  padding-left: 200px;
+  
+}
+
+.DateBoxInside{
+
+  width:  400px;
+
+  height: 30px;
+
+
+ 
+
+}
+
+.DateBoxLeft{
+
+
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-color: white;
+    float: left;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+}
+
+.DateBoxMain{
+
+  width: 340px;
+
+  height: 30px;
+
+  display: inline-block;
+
+  background-color: white;
+
+  float: left;
+}
+
+
+.DateBoxRight{
+
+
+
+        width: 30px;
+    height: 30px;
+    background-color: white;
+    display: inline-block;
+    float: left;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+
+
+}
+
+.DateBoxText{
+
+  display: inline;
+    margin-left: 140px;
+    margin-top: 5px;
+}

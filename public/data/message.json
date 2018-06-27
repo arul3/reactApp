@@ -1,0 +1,52 @@
+[{
+		"date" : "2 january",
+
+		"messages":
+					 [ { 
+
+ 				"message" : "hi... how are you",
+
+				"date" : "april 20",
+
+				"time" : "8:20 pm ",
+
+				"type" : "send",
+
+				"status" : 1
+			}, 
+
+			{ 
+
+ 				"message" : "tommorrow we all go in .... outing ....",
+
+				"date" : "april 20",
+
+				"time" : "8:22 pm ",
+
+				"type" : "send",
+
+				"status" : 1
+			},
+
+			{ 
+
+ 				"message" : "I am fine .... ",
+
+				"date" : "april 20",
+
+				"time" : "8:28 pm ",
+
+				"type" : "receive",
+
+				"status" : 1
+			} 
+]
+ 
+
+}
+
+]
+
+
+
+
