@@ -429,7 +429,7 @@ class AppBody extends Component{
 
       } else {
 
-         let url ="../chat-app/ssedemo.php?id="+receiverId; 
+         let url ="http://localhost/chat-app/ssedemo.php?id="+receiverId; 
       console.log("url is "+url);
 
      this.state.evtSource = new EventSource(url);
@@ -654,7 +654,7 @@ class AppSender extends Component{
       {
 
              global.CrossAjax.POST("http://localhost/chat-app/sendMessage.php",this.state)
-               .then( result => {  if(result == "success") {  this.setState({ message : "" }); }   } )
+               .then( result => {  if(result.status == "success") {  this.setState({ message : "" }); }   } )
 
       }
 
